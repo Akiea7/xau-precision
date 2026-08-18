@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+* { font-family: 'Cairo', sans-serif; }
+
+:root {
+    --bg-primary: #07090D;
+    --bg-secondary: #0B0E14;
+    --card-primary: #11151F;
+    --card-secondary: #171C29;
+    --border-primary: #1F2637;
+    --border-secondary: #2A3348;
+    --gold: #F0B90B;
+    --gold-light: #FBBF24;
+    --gold-lighter: #FCD34D;
+    --green: #22C55E;
+    --red: #F43F5E;
+}
+
+body {
+    background: var(--bg-primary);
+    color: #E2E8F0;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-secondary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+.glass-card {
+    background: linear-gradient(135deg, rgba(17,21,31,0.95), rgba(23,28,41,0.9));
+    border: 1px solid var(--border-primary);
+    backdrop-filter: blur(10px);
+}
+
+.gold-glow {
+    box-shadow: 0 0 20px rgba(240,185,11,0.1);
+}
+
+.gold-border {
+    border: 1px solid rgba(240,185,11,0.3);
+}
+
+.pulse-gold {
+    animation: pulseGold 2s infinite;
+}
+
+@keyframes pulseGold {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-active {
+    background: linear-gradient(135deg, rgba(240,185,11,0.15), rgba(240,185,11,0.05));
+    border-bottom: 2px solid var(--gold);
+    color: var(--gold);
+}
+
+.progress-bar {
+    transition: width 0.5s ease;
+}
+
+.candle-green { fill: var(--green); stroke: var(--green); }
+.candle-red { fill: var(--red); stroke: var(--red); }
+
+.modal-overlay {
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+}
+
+.toast-enter {
+    animation: toastIn 0.3s ease-out;
+}
+
+.toast-exit {
+    animation: toastOut 0.3s ease-in forwards;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toastOut {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(100%); }
+}
+
+.chart-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.equity-curve {
+    position: relative;
+    overflow: hidden;
+}
+
+input, select, textarea {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-primary) !important;
+    color: #E2E8F0 !important;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--gold) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(240,185,11,0.1) !important;
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #000;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-gold:hover {
+    box-shadow: 0 0 20px rgba(240,185,11,0.3);
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    border: 1px solid var(--border-secondary);
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.badge-demo {
+    background: rgba(240,185,11,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(240,185,11,0.3);
+    font-size: 0.65rem;
+    padding: 1px 6px;
+    border-radius: 4px;
+}
+
+.nav-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+}
+
+@media (min-width: 768px) {
+    .nav-mobile { display: none; }
+}
+
+.crosshair-line {
+    position: absolute;
+    background: rgba(240,185,11,0.3);
+    pointer-events: none;
+}
+
+.tooltip-chart {
+    position: absolute;
+    background: var(--card-primary);
+    border: 1px solid var(--border-primary);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    pointer-events: none;
+    z-index: 10;
+}
