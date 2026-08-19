@@ -6,7 +6,7 @@ const ApiService = {
 
         connectWebSocket() {
                 console.log('[API] Connecting to Real Server...');
-                        
+
                                 // الاتصال بالسيرفر الحقيقي
                                         this.socket = io();
 
@@ -26,10 +26,10 @@ const ApiService = {
                                                                                                                                                                 this.socket.on('tick', (data) => {
                                                                                                                                                                             const newPrice = data.data.price;
                                                                                                                                                                                         const oldPrice = AppState.currentPrice;
-                                                                                                                                                                                                    
+
                                                                                                                                                                                                                 AppState.currentPrice = newPrice;
                                                                                                                                                                                                                             AppState.priceChange = ((newPrice - oldPrice) / oldPrice) * 100;
-                                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                                                     updatePriceUI();
                                                                                                                                                                                                                                                             });
                                                                                                                                                                                                                                                                 },
@@ -52,4 +52,4 @@ const ApiService = {
                                                                                                                                                                                                                                                                                                                                                     async fetchReport() { return MockData.dailyReport; },
                                                                                                                                                                                                                                                                                                                                                         async fetchCandles(timeframe, count = 60) { return MockData.generateCandles(timeframe, count); }
                                                                                                                                                                                                                                                                                                                                                         };
-                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
