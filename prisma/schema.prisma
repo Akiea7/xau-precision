@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Candle {
+  id        Int      @id @default(autoincrement())
+  timeframe String
+  open      Float
+  high      Float
+  low       Float
+  close     Float
+  volume    Int?
+  timestamp DateTime
+}
+
+model Trade {
+  id        String    @id @default(uuid())
+  symbol    String    @default("XAU/USD")
+  side      String
+  entry     Float
+  sl        Float
+  tp        Float
+  exit      Float?
+  status    String
+  pnl       Float?
+  rMultiple Float?
+  regime    String?
+  session   String?
+  openedAt  DateTime  @default(now())
+  closedAt  DateTime?
+}
